@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Page</title>
+    <style>
+        /* Styles par défaut */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('backindex.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #lienClicable img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #meilleurScore {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            color: white;
+        }
+
+        .signature-container {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            color: white;
+        }
+
+        .signature {
+            display: flex;
+            align-items: center;
+        }
+
+        .signature img {
+            width: 30px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        /* Media query pour les appareils mobiles */
+        @media only screen and (max-width: 600px) {
+            body {
+                align-items: flex-start; /* Ajuste l'alignement pour les petits écrans */
+                background-image: url('backmobileindex.PNG'); /* Nouvelle image de fond pour les mobiles */
+            }
+
+            #lienClicable {
+                background-image: url(''); /* Nouvelle image du bouton pour les mobiles */
+            }
+
+            #lienClicable img {
+                display: block; /* Affiche l'image du bouton pour les mobiles */
+            }
+
+            #meilleurScore,
+            .signature-container {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <a href="game.html" class="custom-button">
+            <img src="lolojumpindex.PNG" alt="Image cliquable">
+        </a>
+    </div>
+    <div id="meilleurScore">Meilleur Score: <span id="scoreValue"></span></div>
+    <!-- Signatures en bas de la page -->
+    <div class="signature-container">
+        <div class="signature">
+            <img src="pp sachatouile.PNG" alt="Signature Artiste 1">
+            <a href="https://www.instagram.com/sachatouilleouquoi/" style="color: white;"><span>@Sachatouilleouquoi</span></a>
+        </div>
+        <div class="signature">
+            <a href="https://www.instagram.com/3dp_version_beta/" style="color: white;"><span>@3DP</span></a>
+            <img src="pp3DP.png" alt="Signature Artiste 1">
+        </div>
+    </div>
+    
+    <script>
+        // Ajoutez le JavaScript ici
+        function recupererMeilleurScore() {
+            var cookieValeur = getCookie("meilleurScore");
+            return cookieValeur ? parseInt(cookieValeur) : null;
+        }
+        function getCookie(nom) {
+            var nomEQ = nom + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nomEQ) == 0) return c.substring(nomEQ.length, c.length);
+            }
+            return null;
+        }
+        // Mettez à jour le contenu de l'élément #scoreValue avec le meilleur score
+        var meilleurScore = recupererMeilleurScore();
+        if (meilleurScore !== null) {
+            document.getElementById("scoreValue").textContent = meilleurScore;
+        }
+    </script>
+</body>
+</html>

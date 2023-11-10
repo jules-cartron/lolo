@@ -1,0 +1,234 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 75vh; /* Ajustement de la hauteur à 75% de la hauteur de la fenêtre */
+    border: 1px solid #000;
+    background-image: url('top.PNG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    animation: defilementImage 200s linear infinite;
+    overflow: hidden;
+    position: relative; /* Ajoutez cette ligne */
+}
+
+
+@keyframes defilementImage {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+#down-container {
+    position: absolute;
+    top: 75vh; /* Ajustement pour commencer à partir de la fin du game-container */
+    left: 0;
+    right: 0;
+    height: calc(100% - 75vh); /* Utilisation de calc() pour calculer la hauteur */
+    border: 1px solid #000;
+    background-image: url('bas.PNG'); /* Remplacez 'bottom.PNG' par le chemin de votre image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    animation: defilementImageDown 105s linear infinite;
+}
+
+
+@keyframes defilementImageDown {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+#moving-image1 {
+    position: absolute;
+    width: auto; 
+    height: 65%;
+    display: none;
+    top: 30%;
+    /* Vos autres styles... */
+}
+#moving-image2 {
+    position: absolute;
+    width: 150px;
+    height: 180px;
+    display: none;
+    bottom: 0;
+    /* Vos autres styles... */
+}
+#moving-image3 {
+    position: absolute;
+    width: auto; 
+    height: 20%;
+    display: none;
+    top: 30%;
+    /* Vos autres styles... */
+}
+
+
+
+
+
+#dino {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 150px;
+    height: 180px;
+}
+
+#dino1, #dino2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#dino1 {
+    display: block;
+}
+
+#dino2 {
+    display: none;
+}
+#dino3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+/* ... Vos styles CSS existants ... */
+.obstacle img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150px; /* ou la taille que vous souhaitez */
+    height: 180px; /* ou la taille que vous souhaitez */
+    display: block;
+}
+
+
+
+.obstacle {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
+.police {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.police1 {
+    background-image: url('police1.PNG');
+
+}
+
+.police2 {
+    background-image: url('police2.PNG');
+}
+
+.game-over-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    padding: 20px;
+}
+
+.game-over-screen h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.game-over-screen button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+}
+
+#score {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Styles pour les appareils mobiles */
+@media (max-width: 767px) {
+    .police, .obstacle {
+        width: 90px; /* 60% de la taille d'origine (150px) */
+        height: 90px; /* 60% de la taille d'origine (150px) */
+    }
+    .obstacle img {
+        width: 90px; /* ou la taille que vous souhaitez */
+        height: 90px; /* ou la taille que vous souhaitez */
+    }
+
+    #dino {
+        width: 90px; /* 60% de la taille d'origine (150px) */
+        height: 108px; /* 60% de la taille d'origine (180px) */
+    }
+    body.mobile {
+        font-size: 60%; /* Ajustez la taille de la police pour les mobiles */
+    }
+    #game-container {
+        animation: defilementImage 210s linear infinite;
+    }
+    #down-container {
+        animation: defilementImageDown 126s linear infinite;
+    }
+    #moving-image {
+        width: auto; 
+        height: 10%;
+        top: 55%;
+        /* Vos autres styles... */
+    }
+    #moving-image2 {
+        position: absolute;
+        width: 90px; /* 60% de la taille d'origine (150px) */
+        height: 108px;
+        display: none;
+        bottom: 0;
+        /* Vos autres styles... */
+    }
+    #moving-image3 {
+        position: absolute;
+        width: 10; /* 60% de la taille d'origine (150px) */
+        height: 10;
+        display: none;
+        bottom: 0;
+        /* Vos autres styles... */
+    }
+}
