@@ -69,6 +69,7 @@
         }
 
         /* Media query pour les appareils mobiles */
+        /* Media query pour les appareils mobiles */
         @media only screen and (max-width: 600px) {
             body {
                 align-items: flex-start; /* Ajuste l'alignement pour les petits écrans */
@@ -87,14 +88,46 @@
             .signature-container {
                 font-size: 14px;
             }
+
+            img[src="lolojumpindex.PNG"] {
+                display: none; /* Masque l'image 1 */
+            }
+
+            img[src="lolojumpmobileindex.PNG"] {
+                display: block; /* Affiche l'image 2 */
+                max-width: 70%;
+                max-height: 40%; /* Définit la hauteur maximale à 50% de la hauteur de l'écran */
+                position: absolute;
+                top: 45%;
+                left: 40%;
+                transform: translate(-50%, -50%);
+            }
         }
+
+        
+            /* Styles pour les écrans de taille supérieure à 600 pixels (mode PC) */
+            @media screen and (min-width: 600px) {
+                img[src="lolojumpindex.PNG"] {
+                    display: block; /* Affiche l'image 1 */
+                }
+                img[src="lolojumpmobileindex.PNG"] {
+                    display: none; /* Masque l'image 2 */
+                    max-width: 60%;
+                    max-height: 50%; /* Définit la hauteur maximale à 50% de la hauteur de l'écran */
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+
+
     </style>
 </head>
 <body>
     <div class="image-container">
-        <a href="game.html" class="custom-button">
+        <a href="game.html" class="custom-button image-container">
             <img src="lolojumpindex.PNG" alt="Image cliquable">
-        </a>
+            <img src="lolojumpmobileindex.PNG" class="mobile-image" alt="Image cliquable">
+        </a>        
     </div>
     <div id="meilleurScore">Meilleur Score: <span id="scoreValue"></span></div>
     <!-- Signatures en bas de la page -->
